@@ -1,0 +1,86 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# Configuration files with sensitive information
+config.py
+config.yaml
+*.env
+
+# Log files
+*.log
+logs/
+
+# Output files
+*.pdf
+output/
+*.txt
+
+# IDE-specific files
+.idea/
+.vscode/
+*.iml
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Python package files
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+
+# PyInstaller
+*.spec
+
+# Test cache
+.cache/
+.tox/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*.orig
+
+# Coverage reports
+htmlcov/
+.coverage
+*.cover
+.coverage.*
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pylint
+pylint-report.txt
+pylint.log
+
+# Image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Output files
+*.pdf
+*.docx
+*.txt
+
+# Compiled fonts
+*.pkl
