@@ -4,12 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-fpdf = "*"
-python-docx = "*"
 numpy = "*"
 pillow = "*"
 pytesseract = "*"
 opencv-python-headless = "*"
+openai = "*"
 
 [dev-packages]
 
