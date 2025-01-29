@@ -1,9 +1,8 @@
 import os
-
 import config
 
 # Separated responsibility modules
-import optimizer, assembler, recognition
+import optimizer, recognition, assembler
 
 
 def main():
@@ -20,7 +19,7 @@ def main():
     print("Images optimized.")
 
     # Extract text from each optimized image
-    print("Extracting text from images...")
+    print("Extracting text from images..")
     extracted_texts_per_page = []
     optimized_images = os.listdir(config.OPTIMIZED_SOURCE_DIR)
 
@@ -28,9 +27,11 @@ def main():
         image_path = os.path.join(config.OPTIMIZED_SOURCE_DIR, image)
         extracted_text = recognition.recognize(image_path)
 
-        extracted_texts_per_page.append(extracted_text)
+        extracted_texts_per_page.append((image, extracted_text))
 
-    # Assemble the extracted texts into speficied type
+    print("Text extracted from images.")
+
+    # Assemble the extracted texts into specified type
     print("Assembling text as single file...")
     assembler.assemble(extracted_texts_per_page)
 
