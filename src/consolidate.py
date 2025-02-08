@@ -6,7 +6,7 @@ def merge_txt_files():
     """
     Merges all .txt files in the specified directory into a single text file.
     """
-    source_dir = config.REVISED_SOURCE_DIR
+    source_dir = config.LLM_OUTPUT_DIR
     output_file = os.path.join(config.BASE_DIR, 'result.txt')
 
     try:

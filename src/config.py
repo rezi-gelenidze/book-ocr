@@ -4,9 +4,10 @@ import os
 # Paths to directories
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-RAW_SOURCE_DIR = os.path.join(BASE_DIR, 'raw')
-OPTIMIZED_SOURCE_DIR = os.path.join(BASE_DIR, 'optimized')
-OUTPUT_DIR = os.path.join(BASE_DIR, 'output')
-REVISED_SOURCE_DIR = os.path.join(BASE_DIR, 'revised')
+PAIRS_SOURCE_DIR = os.path.join(BASE_DIR, 'pairs')
+PAGES_SOURCE_DIR = os.path.join(BASE_DIR, 'pages')
 
-LLM_API_KEY = "OPENAI_API_KEY"
+OCR_OUTPUT_DIR = os.path.join(BASE_DIR, 'ocr_output')
+LLM_OUTPUT_DIR = os.path.join(BASE_DIR, 'llm_output')
+
+LLM_API_KEY = "openai-api-key"

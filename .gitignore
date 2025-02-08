@@ -19,7 +19,7 @@ logs/
 
 # Output files
 *.pdf
-output/
+ocr_output/
 *.txt
 
 # IDE-specific files
