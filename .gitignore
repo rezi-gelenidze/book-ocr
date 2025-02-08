@@ -1,86 +1,116 @@
-# Byte-compiled files
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
+Here's your updated README reflecting that everything runs through `main.py` with no separate script calls:
 
-# Virtual environment
-venv/
-env/
+---
 
-# Configuration files with sensitive information
-config.py
-config.yaml
-*.env
+# **Georgian Book Digitizer**  
 
-# Log files
-*.log
-logs/
+An **automated** Python tool for digitizing scanned Georgian books. It extracts text using **OCR**, enhances it with **GPT-4o**, and consolidates everything into a structured **digital format**—all in a single run.  
 
-# Output files
-*.pdf
-ocr_output/
-*.txt
+---
 
-# IDE-specific files
-.idea/
-.vscode/
-*.iml
+## **Features**  
 
-# OS-specific files
-.DS_Store
-Thumbs.db
+✅ **Fully Automated Processing**: Runs all steps in one command—no manual intervention.  
+✅ **OCR Extraction**: Uses **Tesseract OCR** (`kat` for Georgian) to convert scanned pages into text.  
+✅ **AI-Powered Text Enhancement**: Uses **GPT-4o** to correct OCR errors while preserving formatting.  
+✅ **Structured Output**: Merges enhanced text into a single digital document.  
 
-# Python package files
-*.egg
-*.egg-info/
-dist/
-build/
-*.manifest
+---
 
-# PyInstaller
-*.spec
+## **Workflow**  
 
-# Test cache
-.cache/
-.tox/
+1️⃣ **Splitting** → Separates scanned page pairs into individual pages.  
+2️⃣ **OCR Processing** → Extracts text from each page.  
+3️⃣ **AI Enhancement** → Refines OCR output for accuracy.  
+4️⃣ **Final Consolidation** → Merges all processed text into a structured result.  
 
-# Jupyter Notebook Checkpoints
-.ipynb_checkpoints/
+---
 
-# Temporary files
-*.tmp
-*.bak
-*.swp
-*.swo
-*.orig
+## **Directory Structure**  
 
-# Coverage reports
-htmlcov/
-.coverage
-*.cover
-.coverage.*
+```
+├── llm_output/      # AI-enhanced text
+├── ocr_output/      # Raw OCR text
+├── pages/           # Individual pages (split from scanned pairs)
+├── pairs/           # Raw scanned page pairs
+├── Pipfile
+├── Pipfile.lock
+├── README.md
+└── src/
+    ├── __init__.py
+    ├── main.py            # Main entry point—executes full pipeline
+    ├── config.py          # Configuration file (paths, API keys, etc.)
+    ├── splitter.py        # Splits scanned pairs into individual pages
+    ├── recognition.py     # OCR processing module
+    ├── llm.py             # AI enhancement module
+    ├── consolidation.py   # Merges processed text into a final document
+```
 
-# MyPy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+---
 
-# Pylint
-pylint-report.txt
-pylint.log
+## **Requirements**  
 
-# Image files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
+- **Python** `3.10+`  
+- **Dependencies**: See `Pipfile`  
 
-# Output files
-*.pdf
-*.docx
-*.txt
+### **Installation**  
 
-# Compiled fonts
-*.pkl
+1️⃣ Clone the repository:  
+
+```bash
+git clone https://github.com/rezi-gelenidze/book-ocr.git
+cd book-ocr
+```  
+
+2️⃣ Install dependencies:  
+
+```bash
+pipenv shell
+pipenv install
+```  
+
+3️⃣ Install Tesseract OCR:  
+
+- Follow online installation guide.  
+
+4️⃣ Acquire OpenAI API key:  
+
+- Set in `config.py` under `LLM_API_KEY`.  
+
+5️⃣ Place scanned **page pairs** in `pairs/`.  
+
+---
+
+## **Usage**  
+
+### **Run Full Digitization Pipeline**  
+
+```bash
+python src/main.py
+```  
+
+- **Splits page pairs** → `pages/`  
+- **Extracts OCR text** → `ocr_output/`  
+- **Enhances text with GPT-4o** → `llm_output/`  
+- **Merges into final document** → `output/result.txt`  
+
+---
+
+## **Outputs**  
+
+📂 **Raw OCR Text (Per Page)** → `ocr_output/`  
+📄 **AI-Enhanced Text (Per Page)** → `llm_output/`  
+📜 **Final Merged Document** → `/result.txt`
+
+---
+
+## **Example Workflow**  
+
+1️⃣ Scanned **pairs** → Split into `pages/`  
+2️⃣ OCR extracts `ocr_output/1.txt`, `ocr_output/2.txt`, ...  
+3️⃣ AI enhances → `llm_output/1.txt`, `llm_output/2.txt`, ...  
+4️⃣ All enhanced pages **merge** into `/result.txt`
+
+---
+
+### **So, Just Run `main.py` and Let It Cook! 🧑‍🍳**
