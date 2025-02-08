@@ -32,5 +32,6 @@ def merge_txt_files():
     except Exception as e:
         print(f"Error during merging: {e}")
 
-# Run the function
-merge_txt_files()
+
+if __name__ == "__main__":
+    merge_txt_files()

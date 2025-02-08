@@ -22,7 +22,7 @@ SYSTEM_PROMPT = {
 }
 
 
-def enhance():
+def enhance_with_ai():
     """
     Enhances OCR text page by page and saves the results separately.
     """
@@ -74,4 +74,4 @@ def enhance():
 
 
 if __name__ == "__main__":
-    enhance()
+    enhance_with_ai()

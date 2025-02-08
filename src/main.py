@@ -1,31 +1,20 @@
-import os
-import config
-
 # Separated responsibility modules
-import recognition, assembler
+import splitter, recognition, llm, consolidation
 
 
 def main():
-    # Extract text from each optimized image
-    print("Extracting text from images..")
-    pages = os.listdir(config.PAGES_SOURCE_DIR)
+    # Step 1: Load pairs/ and split each pair into separate pages
+    splitter.split_pairs()
 
-    # OCR recognize each page and append to the list (accumulator)
-    extracted_texts_per_page = []
-    for page_filename in pages:
-        image_path = os.path.join(config.PAGES_SOURCE_DIR, page_filename)
-        extracted_text = recognition.recognize(image_path)
-        extracted_texts_per_page.append(
-            (page_filename, extracted_text)
-        )
+    # Step 2: Load pages/ and recognize text from each page and save as txt files
+    recognition.recognize_pages()
 
-    print("Text extracted from images.")
+    # Step 3: Enhance the recognized text using OpenAI's LLM
+    llm.enhance_with_ai()
 
-    # Save each page as a separate text file
-    print("Assembling text as single file...")
-    assembler.assemble(extracted_texts_per_page)
+    # Step 4: Assemble the enhanced text into a single file
+    consolidation.merge_txt_files()
 
-    print("Text assembled successfully.")
 
 if __name__ == "__main__":
     main()
